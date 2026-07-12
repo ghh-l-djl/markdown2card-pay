@@ -1,2 +1,2 @@
-// Public configuration only. Replace this URL after creating the production Supabase project.
-window.MARKDOWN2CARD_API_BASE = "https://api.markdown2card.invalid/functions/v1";
+// Public configuration only. This contains no privileged Supabase key.
+window.MARKDOWN2CARD_API_BASE = "https://ikjspgriynhsnjilmmds.supabase.co/functions/v1";
