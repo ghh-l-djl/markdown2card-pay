@@ -10,7 +10,7 @@ Object.defineProperty(globalThis, "navigator", {
   configurable: true
 });
 
-const { COPY, pollPayment, resolveApiBase, resolveLanguage } = await import("../app.js");
+const { COPY, obsidianActivationUri, pollPayment, resolveApiBase, resolveLanguage } = await import("../app.js");
 
 test("language priority is query, saved preference, then browser language", () => {
   assert.equal(resolveLanguage({ queryLanguage: "zh", savedLanguage: "en", browserLanguage: "en-US" }), "zh");
@@ -23,6 +23,12 @@ test("production never silently calls the buyer's localhost", () => {
   assert.equal(resolveApiBase({ hostname: "localhost" }), "http://127.0.0.1:54321/functions/v1");
   assert.equal(resolveApiBase({ hostname: "ghh-l-djl.github.io" }), "https://api.markdown2card.invalid/functions/v1");
   assert.equal(resolveApiBase({ override: "https://project.supabase.co/functions/v1/", hostname: "ghh-l-djl.github.io" }), "https://project.supabase.co/functions/v1");
+});
+
+test("Obsidian return link carries only the Checkout Session ID", () => {
+  const uri = obsidianActivationUri("cs_test_abc123");
+  assert.equal(uri, "obsidian://markdown2card-activate?session_id=cs_test_abc123");
+  assert.equal(uri.includes("M2C-"), false);
 });
 
 test("payment polling stops on paid and returns the activation code", async () => {

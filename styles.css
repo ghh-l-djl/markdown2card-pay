@@ -17,6 +17,9 @@ h1 { max-width: 720px; margin: 14px 0 18px; font-family: Georgia, "Times New Rom
 .payment-note { margin: 24px 0; font-size: 13px; line-height: 1.6; }
 button { border: 1px solid #ccb8a8; border-radius: 12px; padding: 12px 18px; background: #fff; cursor: pointer; }
 button.primary { border: 0; color: white; background: linear-gradient(135deg, #e45542, #a52d4f); box-shadow: 0 12px 28px rgba(164,45,79,.22); }
+.button-link { display: inline-block; border-radius: 12px; padding: 12px 18px; text-decoration: none; }
+.open-obsidian { margin: 18px 0; }
+.open-obsidian p { color: #65544a; font-size: 13px; line-height: 1.6; }
 button:disabled { cursor: wait; opacity: .55; }
 .status, .warning { min-height: 22px; color: #8c4338; }
 .success code { display: block; margin: 24px 0 14px; padding: 18px; border-radius: 14px; overflow-wrap: anywhere; background: #2c2521; color: #fff7e8; font-size: clamp(16px, 3vw, 24px); letter-spacing: .05em; }

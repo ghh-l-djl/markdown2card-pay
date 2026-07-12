@@ -2,7 +2,7 @@ export const COPY = {
   zh: {
     eyebrow: "一笔很小的支持，一份很长的动力",
     headline: "不到一杯奶茶的钱，让好工具一直生长",
-    lead: "Markdown2Card 的维护来自一个独立开发者。你的 HK$20 不只是在关闭提醒，更是在告诉我：这个插件值得继续认真做下去。金额很少，但每一份支持都会让我非常感动，也会成为持续修复、优化和创作的动力。",
+    lead: "Markdown2Card 的维护来自一个独立开发者。你的打赏不只是在关闭提醒，更是在告诉我：这个插件值得继续认真做下去。金额很少，但每一份支持都会让我非常感动，也会成为持续修复、优化和创作的动力。",
     once: "一次支持 · 永久有效",
     permanent: "一次付费，永久关闭支持提醒",
     devices: "不限设备数量，换电脑也能继续使用",
@@ -22,6 +22,8 @@ export const COPY = {
     retry: "重新检查",
     copy: "复制激活码",
     copied: "已复制",
+    openObsidian: "打开 Obsidian 并自动激活",
+    openHint: "推荐：一键返回插件完成激活；如果浏览器没有响应，再复制激活码。",
     saveWarning: "不要把完整激活码发送给任何人。关闭页面前请妥善保存。",
     support: "遇到异常？请附上支付时间和下方 Session ID 联系：",
     xiaohongshu: "小红书",
@@ -50,6 +52,8 @@ export const COPY = {
     retry: "Check again",
     copy: "Copy activation code",
     copied: "Copied",
+    openObsidian: "Open Obsidian and activate",
+    openHint: "Recommended: return to the plugin and activate in one click. Copy the code only if your browser cannot open Obsidian.",
     saveWarning: "Never send the full activation code to anyone. Save it before closing this page.",
     support: "Need help? Include the payment time and Session ID below when contacting:",
     xiaohongshu: "Xiaohongshu",
@@ -72,6 +76,10 @@ export async function pollPayment(sessionId, requestStatus, options = {}) {
     if (attempt < maxAttempts - 1) await new Promise((resolve) => setTimeout(resolve, intervalMs));
   }
   return { status: "pending" };
+}
+
+export function obsidianActivationUri(sessionId) {
+  return `obsidian://markdown2card-activate?session_id=${encodeURIComponent(sessionId)}`;
 }
 
 export function resolveApiBase({ override, hostname }) {
@@ -162,11 +170,14 @@ function renderPaymentStatus(result) {
     document.getElementById("activation-code").textContent = result.activationCode;
     document.getElementById("activation-result").hidden = false;
     message.textContent = COPY[language].saveWarning;
+    document.getElementById("open-obsidian-button").href = obsidianActivationUri(params.get("session_id"));
+    document.getElementById("open-obsidian-action").hidden = false;
     retryButton.disabled = false;
     retryButton.hidden = true;
     return;
   }
   document.getElementById("activation-result").hidden = true;
+  document.getElementById("open-obsidian-action").hidden = true;
   message.textContent = result.status === "pending" ? COPY[language].confirmingDetail : "";
   retryButton.hidden = false;
   retryButton.disabled = false;
