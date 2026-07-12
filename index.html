@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Support Markdown2Card and receive a permanent paid entitlement.">
+  <title>Support Markdown2Card</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="./">Markdown2Card</a>
+      <button id="language-toggle" class="language-toggle" type="button">中 / EN</button>
+    </header>
+    <section id="purchase-view" class="card hero">
+      <p class="eyebrow" data-i18n="eyebrow"></p>
+      <h1 data-i18n="headline"></h1>
+      <p class="lead" data-i18n="lead"></p>
+      <div class="price"><strong>HK$20</strong><span data-i18n="once"></span></div>
+      <ul class="benefits">
+        <li data-i18n="permanent"></li>
+        <li data-i18n="devices"></li>
+        <li data-i18n="recovery"></li>
+        <li data-i18n="refund"></li>
+      </ul>
+      <p class="payment-note" data-i18n="paymentMethods"></p>
+      <button id="checkout-button" class="primary" type="button" data-i18n="checkout"></button>
+      <p id="purchase-status" class="status" aria-live="polite"></p>
+    </section>
+    <section id="success-view" class="card success" hidden>
+      <p class="eyebrow" data-i18n="successEyebrow"></p>
+      <h1 id="success-title"></h1>
+      <p id="success-message" class="lead"></p>
+      <div id="activation-result" hidden>
+        <code id="activation-code"></code>
+        <button id="copy-button" class="primary" type="button" data-i18n="copy"></button>
+        <p class="warning" data-i18n="saveWarning"></p>
+      </div>
+      <button id="retry-button" type="button" data-i18n="retry" hidden></button>
+      <p class="support">
+        <span data-i18n="support"></span>
+        <a href="mailto:3543253748@qq.com?subject=Markdown2Card%20支付异常">3543253748@qq.com</a>
+        · <a href="xiaohongshu-contact.jpg" target="_blank" rel="noreferrer" data-i18n="xiaohongshu"></a>
+      </p>
+      <p class="privacy" data-i18n="privacy"></p>
+      <p class="session">Session ID: <span id="session-id"></span></p>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
