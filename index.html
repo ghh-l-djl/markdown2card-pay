@@ -3,31 +3,80 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Support Markdown2Card and receive a permanent paid entitlement.">
-  <title>Support Markdown2Card</title>
+  <meta name="description" content="Purchase a permanent Markdown2Card licence for HKD 20. One-time payment, immediate digital delivery, and no subscription.">
+  <title>Markdown2Card Permanent Licence</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main class="shell">
     <header class="topbar">
       <a class="brand" href="./">Markdown2Card</a>
-      <button id="language-toggle" class="language-toggle" type="button">中 / EN</button>
+      <div class="topbar-actions">
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#product" data-i18n="navProduct"></a>
+          <a href="#policies" data-i18n="navPolicies"></a>
+          <a href="#contact" data-i18n="navContact"></a>
+        </nav>
+        <button id="language-toggle" class="language-toggle" type="button">中 / EN</button>
+      </div>
     </header>
-    <section id="purchase-view" class="card hero">
-      <p class="eyebrow" data-i18n="eyebrow"></p>
-      <h1 data-i18n="headline"></h1>
-      <p class="lead" data-i18n="lead"></p>
-      <div class="price"><strong>HK$20</strong><span data-i18n="once"></span></div>
-      <ul class="benefits">
-        <li data-i18n="permanent"></li>
-        <li data-i18n="devices"></li>
-        <li data-i18n="recovery"></li>
-        <li data-i18n="refund"></li>
-      </ul>
-      <p class="payment-note" data-i18n="paymentMethods"></p>
-      <button id="checkout-button" class="primary" type="button" data-i18n="checkout"></button>
-      <p id="purchase-status" class="status" aria-live="polite"></p>
-    </section>
+    <div id="purchase-view">
+      <section class="card hero">
+        <p class="eyebrow" data-i18n="eyebrow"></p>
+        <h1 data-i18n="headline"></h1>
+        <p class="lead" data-i18n="lead"></p>
+        <div class="price"><strong>HKD 20</strong><span data-i18n="once"></span></div>
+        <ul class="benefits">
+          <li data-i18n="permanent"></li>
+          <li data-i18n="devices"></li>
+          <li data-i18n="recovery"></li>
+          <li data-i18n="refund"></li>
+        </ul>
+        <button id="checkout-button" class="primary" type="button" data-i18n="checkout"></button>
+        <p class="secure-payment" data-i18n="securePayment"></p>
+        <p class="payment-note" data-i18n="paymentMethods"></p>
+        <p id="purchase-status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section id="product" class="content-section" aria-labelledby="product-title">
+        <p class="eyebrow" data-i18n="productEyebrow"></p>
+        <h2 id="product-title" data-i18n="productTitle"></h2>
+        <p class="section-intro" data-i18n="productDescription"></p>
+        <div class="feature-grid">
+          <article>
+            <h3 data-i18n="productUseTitle"></h3>
+            <p data-i18n="productUse"></p>
+          </article>
+          <article>
+            <h3 data-i18n="productDeliveryTitle"></h3>
+            <p data-i18n="productDelivery"></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="policies" class="content-section" aria-labelledby="policies-title">
+        <p class="eyebrow" data-i18n="policiesEyebrow"></p>
+        <h2 id="policies-title" data-i18n="policiesTitle"></h2>
+        <div class="policy-list">
+          <article>
+            <h3 data-i18n="deliveryTitle"></h3>
+            <p data-i18n="deliveryPolicy"></p>
+          </article>
+          <article>
+            <h3 data-i18n="refundTitle"></h3>
+            <p data-i18n="refundPolicy"></p>
+          </article>
+          <article>
+            <h3 data-i18n="privacyTitle"></h3>
+            <p data-i18n="privacyPolicy"></p>
+          </article>
+          <article>
+            <h3 data-i18n="termsTitle"></h3>
+            <p data-i18n="termsPolicy"></p>
+          </article>
+        </div>
+      </section>
+    </div>
     <section id="success-view" class="card success" hidden>
       <p class="eyebrow" data-i18n="successEyebrow"></p>
       <h1 id="success-title"></h1>
@@ -50,6 +99,21 @@
       <p class="privacy" data-i18n="privacy"></p>
       <p class="session">Session ID: <span id="session-id"></span></p>
     </section>
+
+    <footer id="contact" class="site-footer">
+      <div>
+        <span data-i18n="merchantLabel"></span>
+        <strong data-i18n="merchantName"></strong>
+      </div>
+      <div>
+        <span data-i18n="supportPhoneLabel"></span>
+        <a href="tel:+8619846124356" data-i18n="supportPhone"></a>
+      </div>
+      <div>
+        <span data-i18n="supportEmailLabel"></span>
+        <a href="mailto:3543253748@qq.com?subject=Markdown2Card%20客服支持">3543253748@qq.com</a>
+      </div>
+    </footer>
   </main>
   <script src="config.js"></script>
   <script type="module" src="app.js"></script>

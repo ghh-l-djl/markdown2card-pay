@@ -61,3 +61,24 @@ test("expired recovery explains that support must replace the code", () => {
   assert.match(`${COPY.zh.expired} ${COPY.zh.expiredDetail}`, /无法恢复.*联系.*重置/);
   assert.match(`${COPY.en.expired} ${COPY.en.expiredDetail}`, /cannot be recovered.*contact support.*replacement/i);
 });
+
+test("both languages present the payment as a product licence", () => {
+  for (const language of ["zh", "en"]) {
+    const copy = COPY[language];
+    assert.match(`${copy.eyebrow} ${copy.headline} ${copy.lead}`, /授权|购买|licen[cs]e|purchase/i);
+    assert.match(copy.productDescription, /Markdown|Obsidian/i);
+    assert.match(copy.once, /HKD|one-time|一次/i);
+  }
+});
+
+test("public compliance copy identifies the merchant and customer support", () => {
+  for (const language of ["zh", "en"]) {
+    const copy = COPY[language];
+    assert.equal(copy.merchantName, "ai-vibe");
+    assert.match(copy.supportPhone, /198 4612 4356/);
+    assert.match(copy.deliveryPolicy, /激活码|activation code/i);
+    assert.match(copy.refundPolicy, /7 天|7 days/i);
+    assert.match(copy.privacyPolicy, /Stripe/i);
+    assert.match(copy.termsPolicy, /订阅|subscription/i);
+  }
+});
