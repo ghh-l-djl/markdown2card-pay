@@ -12,7 +12,7 @@
     <header class="topbar">
       <a class="brand" href="./">Markdown2Card</a>
       <div class="topbar-actions">
-        <nav class="nav" aria-label="Primary navigation">
+        <nav id="primary-nav" class="nav" aria-label="Primary navigation">
           <a href="#product" data-i18n="navProduct"></a>
           <a href="#policies" data-i18n="navPolicies"></a>
           <a href="#contact" data-i18n="navContact"></a>
@@ -52,6 +52,13 @@
             <p data-i18n="productDelivery"></p>
           </article>
         </div>
+        <figure class="product-preview">
+          <img src="product-preview.png" alt="Markdown2Card multi-page image card export preview" width="2022" height="1326" loading="lazy">
+          <figcaption>
+            <span data-i18n="productPreviewCaption"></span>
+            <a href="https://github.com/ghh-l-djl/markdown2card" target="_blank" rel="noreferrer" data-i18n="productLink"></a>
+          </figcaption>
+        </figure>
       </section>
 
       <section id="policies" class="content-section" aria-labelledby="policies-title">
@@ -107,7 +114,7 @@
       </div>
       <div>
         <span data-i18n="supportPhoneLabel"></span>
-        <a href="tel:+8619846124356" data-i18n="supportPhone"></a>
+        <a id="support-phone-link" data-i18n="supportPhone"></a>
       </div>
       <div>
         <span data-i18n="supportEmailLabel"></span>

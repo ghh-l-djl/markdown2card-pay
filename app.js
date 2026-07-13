@@ -1,9 +1,15 @@
+export const BUSINESS = Object.freeze({
+  merchantName: "ai-vibe",
+  supportPhone: "+86 198 4612 4356",
+  supportPhoneHref: "tel:+8619846124356"
+});
+
 export const COPY = {
   zh: {
     eyebrow: "Obsidian 插件永久授权",
     headline: "购买 Markdown2Card 永久授权",
     lead: "Markdown2Card 是一款将 Markdown 内容转换为便于分享的图片卡片的 Obsidian 插件。一次付费即可获得永久授权，不包含订阅或自动续费。",
-    once: "HKD 20 · 一次性付费",
+    once: "一次性付费 · 永久授权",
     permanent: "一次付费，永久使用并关闭支持提醒",
     devices: "不限设备数量，换电脑也能继续使用",
     recovery: "付款成功后立即显示激活码；成功页可在 2 小时内恢复",
@@ -20,6 +26,8 @@ export const COPY = {
     productUse: "付款后获得个人永久授权，可在多台个人设备上使用，无订阅费。",
     productDeliveryTitle: "数字交付",
     productDelivery: "Stripe 确认付款后，本页会立即显示激活码，并提供返回 Obsidian 完成激活的入口。",
+    productPreviewCaption: "Markdown2Card 实际导出效果：将一篇 Markdown 笔记自动分页为多张图片卡片。",
+    productLink: "查看产品说明与源代码",
     policiesEyebrow: "透明购买",
     policiesTitle: "交付、退款与数据政策",
     deliveryTitle: "数字商品交付",
@@ -27,18 +35,18 @@ export const COPY = {
     refundTitle: "7 天退款政策",
     refundPolicy: "付款成功后 7 天内，购买者可通过下方邮箱或电话申请全额退款。请提供支付时间和 Stripe Session ID，不要发送完整激活码。确认后退款将原路返回，到账时间以支付渠道为准。",
     privacyTitle: "隐私政策",
-    privacyPolicy: "付款信息由 Stripe 安全处理；本页不存储银行卡、支付宝或微信支付账户详情。我们仅处理完成交付、激活和客服所需的交易状态与 Session ID，客服联系信息不用于营销。",
+    privacyPolicy: "付款信息由 Stripe 安全处理；本页不存储银行卡、支付宝或微信支付账户详情。我们会处理完成交付、激活、限时激活码恢复和客服所需的交易状态、Session ID 与激活交付数据。客服联系信息不用于营销。",
     termsTitle: "服务条款",
     termsPolicy: "此交易为一次性个人使用授权，不是订阅，不会自动续费。激活码不得转售、公开或与他人共享。产品会持续维护，具体功能可随版本更新。",
     merchantLabel: "商家名称",
-    merchantName: "ai-vibe",
+    merchantName: BUSINESS.merchantName,
     supportPhoneLabel: "客服电话",
-    supportPhone: "+86 198 4612 4356",
+    supportPhone: BUSINESS.supportPhone,
     supportEmailLabel: "客服邮箱",
     securePayment: "支付由 Stripe Checkout 安全处理。",
     creating: "正在创建安全支付页面…",
     createFailed: "暂时无法创建支付页面，请稍后重试。",
-    successEyebrow: "感谢你的支持",
+    successEyebrow: "感谢购买 Markdown2Card",
     confirming: "正在确认付款",
     confirmingDetail: "请保持页面打开，我们正在向 Stripe 确认付款状态。",
     paid: "付款成功，请保存激活码",
@@ -61,7 +69,7 @@ export const COPY = {
     eyebrow: "Permanent Obsidian plugin licence",
     headline: "Purchase a permanent Markdown2Card licence",
     lead: "Markdown2Card is an Obsidian plugin that turns Markdown content into shareable image cards. A single payment gives you a permanent licence with no subscription or automatic renewal.",
-    once: "HKD 20 · one-time payment",
+    once: "one-time payment · permanent licence",
     permanent: "Pay once for permanent use and no support reminders",
     devices: "Use on any number of devices",
     recovery: "Receive an activation code immediately; recover it from this page for 2 hours",
@@ -78,6 +86,8 @@ export const COPY = {
     productUse: "Payment provides a permanent personal licence for use on multiple personal devices, with no subscription fee.",
     productDeliveryTitle: "Digital delivery",
     productDelivery: "After Stripe confirms payment, this page immediately displays an activation code and provides a link back to Obsidian to complete activation.",
+    productPreviewCaption: "An actual Markdown2Card export: one Markdown note automatically paginated into multiple image cards.",
+    productLink: "View product details and source code",
     policiesEyebrow: "Transparent purchase",
     policiesTitle: "Delivery, refund, and data policies",
     deliveryTitle: "Digital product delivery",
@@ -85,18 +95,18 @@ export const COPY = {
     refundTitle: "7-day refund policy",
     refundPolicy: "You may request a full refund within 7 days of successful payment by email or phone below. Include the payment time and Stripe Session ID, but never send your full activation code. Approved refunds return to the original payment method; arrival time depends on the payment provider.",
     privacyTitle: "Privacy policy",
-    privacyPolicy: "Stripe securely processes payment information. This page doesn't store card, Alipay, or WeChat Pay account details. We process only the transaction status and Session ID needed for delivery, activation, and support. Support contact details aren't used for marketing.",
+    privacyPolicy: "Stripe securely processes payment information. This page doesn't store card, Alipay, or WeChat Pay account details. We process transaction status, the Session ID, and activation-delivery data needed for payment fulfilment, activation, time-limited code recovery, and support. Support contact details aren't used for marketing.",
     termsTitle: "Terms of service",
     termsPolicy: "This is a one-time personal-use licence, not a subscription, and it doesn't renew automatically. Activation codes may not be resold, published, or shared with others. The product is maintained over time and features may change between versions.",
     merchantLabel: "Merchant",
-    merchantName: "ai-vibe",
+    merchantName: BUSINESS.merchantName,
     supportPhoneLabel: "Support phone",
-    supportPhone: "+86 198 4612 4356",
+    supportPhone: BUSINESS.supportPhone,
     supportEmailLabel: "Support email",
     securePayment: "Payments are securely processed by Stripe Checkout.",
     creating: "Creating a secure checkout…",
     createFailed: "Checkout is temporarily unavailable. Please try again.",
-    successEyebrow: "Thank you for supporting the project",
+    successEyebrow: "Thank you for purchasing Markdown2Card",
     confirming: "Confirming your payment",
     confirmingDetail: "Keep this page open while we confirm the payment with Stripe.",
     paid: "Payment confirmed—save your activation code",
@@ -181,6 +191,7 @@ async function post(path, body) {
 }
 
 const checkoutButton = document.getElementById("checkout-button");
+document.getElementById("support-phone-link").href = BUSINESS.supportPhoneHref;
 checkoutButton.addEventListener("click", async () => {
   checkoutButton.disabled = true;
   document.getElementById("purchase-status").textContent = COPY[language].creating;
@@ -253,6 +264,7 @@ translate();
 const sessionId = params.get("session_id");
 if (sessionId) {
   document.getElementById("purchase-view").hidden = true;
+  document.getElementById("primary-nav").hidden = true;
   document.getElementById("success-view").hidden = false;
   document.getElementById("session-id").textContent = sessionId;
   showPaymentStatus(sessionId);
