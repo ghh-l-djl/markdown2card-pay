@@ -18,6 +18,8 @@ export const COPY = {
     paid: "付款成功，请保存激活码",
     pending: "付款仍在处理中",
     cancelled: "本次支付未完成",
+    expired: "激活码已超过恢复期限",
+    expiredDetail: "出于安全原因，原激活码已无法恢复。请通过下方邮箱或小红书联系支持，并附上 Session ID 申请重置。",
     failed: "暂时无法确认付款",
     retry: "重新检查",
     copy: "复制激活码",
@@ -48,6 +50,8 @@ export const COPY = {
     paid: "Payment confirmed—save your activation code",
     pending: "Your payment is still processing",
     cancelled: "This payment was not completed",
+    expired: "Activation-code recovery has expired",
+    expiredDetail: "For security, the original code cannot be recovered. Contact support below with the Session ID to request a replacement.",
     failed: "We couldn't confirm the payment yet",
     retry: "Check again",
     copy: "Copy activation code",
@@ -178,7 +182,11 @@ function renderPaymentStatus(result) {
   }
   document.getElementById("activation-result").hidden = true;
   document.getElementById("open-obsidian-action").hidden = true;
-  message.textContent = result.status === "pending" ? COPY[language].confirmingDetail : "";
+  message.textContent = result.status === "pending"
+    ? COPY[language].confirmingDetail
+    : result.status === "expired"
+      ? COPY[language].expiredDetail
+      : "";
   retryButton.hidden = false;
   retryButton.disabled = false;
 }

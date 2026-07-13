@@ -56,3 +56,8 @@ test("both languages disclose the permanent entitlement and recovery terms", () 
     assert.match(copy.refund, /7 days|7 天/i);
   }
 });
+
+test("expired recovery explains that support must replace the code", () => {
+  assert.match(`${COPY.zh.expired} ${COPY.zh.expiredDetail}`, /无法恢复.*联系.*重置/);
+  assert.match(`${COPY.en.expired} ${COPY.en.expiredDetail}`, /cannot be recovered.*contact support.*replacement/i);
+});
