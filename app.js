@@ -1,3 +1,5 @@
+import { resolveApiBase } from "./config.js";
+
 export const BUSINESS = Object.freeze({
   merchantName: "ai-vibe",
   supportPhone: "+86 198 4612 4356",
@@ -146,12 +148,6 @@ export async function pollPayment(sessionId, requestStatus, options = {}) {
 
 export function obsidianActivationUri(sessionId) {
   return `obsidian://markdown2card-activate?session_id=${encodeURIComponent(sessionId)}`;
-}
-
-export function resolveApiBase({ override, hostname }) {
-  if (override) return override.replace(/\/$/, "");
-  if (hostname === "localhost" || hostname === "127.0.0.1") return "http://127.0.0.1:54321/functions/v1";
-  return "https://api.markdown2card.invalid/functions/v1";
 }
 
 const API_BASE = resolveApiBase({

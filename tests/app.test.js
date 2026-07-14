@@ -10,7 +10,8 @@ Object.defineProperty(globalThis, "navigator", {
   configurable: true
 });
 
-const { COPY, obsidianActivationUri, pollPayment, resolveApiBase, resolveLanguage } = await import("../app.js");
+const { resolveApiBase } = await import("../config.js");
+const { COPY, obsidianActivationUri, pollPayment, resolveLanguage } = await import("../app.js");
 
 test("language priority is query, saved preference, then browser language", () => {
   assert.equal(resolveLanguage({ queryLanguage: "zh", savedLanguage: "en", browserLanguage: "en-US" }), "zh");
@@ -19,10 +20,14 @@ test("language priority is query, saved preference, then browser language", () =
   assert.equal(resolveLanguage({ queryLanguage: null, savedLanguage: null, browserLanguage: "fr-FR" }), "en");
 });
 
-test("production never silently calls the buyer's localhost", () => {
-  assert.equal(resolveApiBase({ hostname: "localhost" }), "http://127.0.0.1:54321/functions/v1");
-  assert.equal(resolveApiBase({ hostname: "ghh-l-djl.github.io" }), "https://api.markdown2card.invalid/functions/v1");
-  assert.equal(resolveApiBase({ override: "https://project.supabase.co/functions/v1/", hostname: "ghh-l-djl.github.io" }), "https://project.supabase.co/functions/v1");
+test("public configuration isolates known local hosts from the production Pages host", () => {
+  for (const hostname of ["localhost", "127.0.0.1", "0.0.0.0", "::1", "[::1]"]) {
+    assert.equal(resolveApiBase({ hostname }), "http://127.0.0.1:54321/functions/v1");
+  }
+  assert.equal(resolveApiBase({ hostname: "ghh-l-djl.github.io" }), "https://ikjspgriynhsnjilmmds.supabase.co/functions/v1");
+  assert.equal(resolveApiBase({ override: "http://127.0.0.1:9999/functions/v1/", hostname: "localhost" }), "http://127.0.0.1:9999/functions/v1");
+  assert.equal(resolveApiBase({ override: "https://project.supabase.co/functions/v1/", hostname: "ghh-l-djl.github.io" }), "https://ikjspgriynhsnjilmmds.supabase.co/functions/v1");
+  assert.throws(() => resolveApiBase({ hostname: "preview.example" }), /unsupported site origin/);
 });
 
 test("Obsidian return link carries only the Checkout Session ID", () => {
