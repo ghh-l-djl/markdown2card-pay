@@ -86,4 +86,7 @@ test("public compliance copy identifies the merchant and customer support", () =
     assert.match(copy.privacyPolicy, /Stripe/i);
     assert.match(copy.termsPolicy, /订阅|subscription/i);
   }
+
+  assert.match(COPY.zh.refundPolicy, /下方联系方式/);
+  assert.match(COPY.en.refundPolicy, /contact details below/i);
 });
