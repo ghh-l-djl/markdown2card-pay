@@ -19,7 +19,7 @@ npm run supabase:reset
 npm run supabase:serve
 ```
 
-Its ignored `supabase/functions/.env` must use an `sk_test_...` key, set this page as `PURCHASE_PAGE_URL`, and omit `STRIPE_API_BASE`. Do not use `supabase:serve:test`; that command expects the automated test process to provide a fake Stripe API on port 8787.
+Its ignored `supabase/functions/.env` must use an `sk_test_...` key, set this page as `PURCHASE_PAGE_URL`, set `PLUGIN_DOWNLOAD_URL=https://download.ai-vibe.cn/obsidian-publisher-extension.zip`, and omit `STRIPE_API_BASE`. Do not use `supabase:serve:test`; that command expects the automated test process to provide a fake Stripe API on port 8787.
 
 Complete a test Checkout and verify:
 
@@ -27,6 +27,7 @@ Complete a test Checkout and verify:
 - Pending polling stops on paid and shows one code.
 - Refreshing or reopening the same success URL within two hours shows the same code.
 - “Open Obsidian” produces a URI containing only the Session ID.
+- The Stripe receipt can be sent manually from the Dashboard and contains the plugin package download link. Sandbox automatic receipts are only sent to the Stripe account email or verified team-member emails.
 - After locally forcing `recovery_expires_at` to `now()`, the page hides code actions and shows support/reset guidance.
 
 ## GitHub Pages deployment

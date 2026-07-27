@@ -21,6 +21,8 @@ The fallback in `app.js` is deliberately invalid for non-local hosts. A producti
 6. A paid result displays and can copy the code. The Obsidian URI carries only the Session ID so the plugin claims the code itself.
 7. An expired result hides all code actions and tells the user to contact support with the Session ID for a new activation code.
 
+Plugin package delivery is not handled by this static page. The backend puts the public package download link into Stripe's successful-payment receipt.
+
 ## Browser-held data
 
 - `localStorage`: selected language only.
