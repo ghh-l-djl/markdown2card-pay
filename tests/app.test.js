@@ -62,6 +62,11 @@ test("both languages disclose the permanent entitlement and recovery terms", () 
   }
 });
 
+test("checkout copy explains email delivery for the Xiaohongshu publishing plugin", () => {
+  assert.match(COPY.zh.paymentMethods, /小红书一键发布插件.*正确填写邮箱.*插件安装包.*发送/);
+  assert.match(COPY.en.paymentMethods, /Xiaohongshu one-click publishing plugin.*correct email.*installer.*sent/i);
+});
+
 test("expired recovery explains that the web page no longer shows the code and support can issue a new one", () => {
   assert.match(`${COPY.zh.expired} ${COPY.zh.expiredDetail}`, /不支持通过网页查看.*没有及时保存.*联系支持.*Session ID.*新的激活码/);
   assert.match(`${COPY.en.expired} ${COPY.en.expiredDetail}`, /no longer available on this page.*did not save.*contact support.*Session ID.*new activation code/i);
